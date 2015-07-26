@@ -1,8 +1,13 @@
 package com.home;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class DirectoryIterator {
 
@@ -26,5 +31,20 @@ public class DirectoryIterator {
 		}
 		return returnList;
 	}
+	
+	/**
+	 * Use Files.walk() to generate a List of Paths by walking the filesystem recursively.
+	 * @param path
+	 * @return a list of paths
+	 */
+    public List<Path> listDirectoryTree(Path path) {
+    	List<Path> list = new ArrayList<Path>();
+    	try {
+			Files.walk(path).forEach(list::add);
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+		}
+		return list;
+    }
 
 }

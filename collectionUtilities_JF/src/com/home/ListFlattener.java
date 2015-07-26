@@ -1,7 +1,9 @@
 package com.home;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 
 public class ListFlattener {
@@ -25,5 +27,20 @@ public class ListFlattener {
         }
         return newList;
     }
+	
+	public List<Object> flattenListUsingStreams() {
+		return null;
+	}
+	
+	public static void main(String [] args) {
+		Stream<List<Integer>> integerListStream = Stream.of(
+				  Arrays.asList(1, 2), 
+				  Arrays.asList(3, 4), 
+				  Arrays.asList(5)
+				);
+
+				Stream<Integer> integerStream = integerListStream .flatMap((integerList) -> integerList.stream());
+				integerStream.forEach(System.out::println);
+	}
 	
 }
