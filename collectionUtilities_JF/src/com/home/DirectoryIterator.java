@@ -5,17 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DirectoryIterator {
+
 	/**
 	 * listFiles() from the java File API.
 	 * It returns an array of all the files in a directory
-	 * @param args
+	 * @param array of directory files
+	 * @return List<String> of file names
 	 */
-	public static void main(String [] args) {
-		File[] files = new File("/Users/joeyfaherty/Desktop/LearningFinaCutProXorMavericks").listFiles();
-		System.out.println(showFiles(files));;
-	}
-
-	private static List<String> showFiles(File[] files) {
+	public List<String> showFiles(File[] files) {
 		List<String> returnList = new ArrayList<>();
 		for (File element : files) {
 			//if its a directory, pass it to showFiles() again
