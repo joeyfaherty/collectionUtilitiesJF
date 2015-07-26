@@ -12,6 +12,7 @@ public class Application {
 		ListFlattener listFlattener = new ListFlattener();
 		List<Object> flatListRecursion = listFlattener.flattenList(deeplist);
         System.out.println("Flat list: " + flatListRecursion);
+        
 	}
 
 }
